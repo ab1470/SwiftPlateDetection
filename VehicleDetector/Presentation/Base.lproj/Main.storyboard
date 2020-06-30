@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tkA-8k-4VO">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="cWa-Zx-dU6">
+            <objects>
+                <viewController id="tkA-8k-4VO" customClass="MainViewController" customModule="VehicleDetector" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cjo-fk-WpR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YsL-f3-ou4">
+                                <rect key="frame" x="158" y="807" width="98" height="30"/>
+                                <state key="normal" title="Run Detection"/>
+                                <connections>
+                                    <action selector="didTapButton:" destination="tkA-8k-4VO" eventType="touchUpInside" id="qBK-oN-C48"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8Ac-YX-tWC">
+                                <rect key="frame" x="20" y="44" width="374" height="755"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7MK-9e-cSB">
+                                    <size key="itemSize" width="374" height="300"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlateDetectionCell" id="maG-FB-FXX" customClass="PlateDetectionCell" customModule="VehicleDetector" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="10" width="374" height="300"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4s0-eO-mzk">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="300"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hae-Mr-aQV" customClass="VehiclePlateView" customModule="VehicleDetector" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="300"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Kv-CF-4wT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="300"/>
+                                                    <subviews>
+                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="UX4-ct-2yM">
+                                                            <rect key="frame" x="168.5" y="131.5" width="37" height="37"/>
+                                                        </activityIndicatorView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="UX4-ct-2yM" firstAttribute="centerX" secondItem="2Kv-CF-4wT" secondAttribute="centerX" id="Agc-n0-GMy"/>
+                                                        <constraint firstItem="UX4-ct-2yM" firstAttribute="centerY" secondItem="2Kv-CF-4wT" secondAttribute="centerY" id="J80-gM-Fy9"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="2Kv-CF-4wT" secondAttribute="bottom" id="MvS-tz-txV"/>
+                                                <constraint firstItem="2Kv-CF-4wT" firstAttribute="top" secondItem="4s0-eO-mzk" secondAttribute="top" id="PkA-Jq-ZSa"/>
+                                                <constraint firstAttribute="bottom" secondItem="Hae-Mr-aQV" secondAttribute="bottom" id="Pm4-z2-ObD"/>
+                                                <constraint firstAttribute="trailing" secondItem="2Kv-CF-4wT" secondAttribute="trailing" id="RtV-je-wJs"/>
+                                                <constraint firstItem="Hae-Mr-aQV" firstAttribute="leading" secondItem="4s0-eO-mzk" secondAttribute="leading" id="TZQ-wJ-Tm9"/>
+                                                <constraint firstItem="2Kv-CF-4wT" firstAttribute="leading" secondItem="4s0-eO-mzk" secondAttribute="leading" id="VUQ-FN-SYt"/>
+                                                <constraint firstItem="Hae-Mr-aQV" firstAttribute="top" secondItem="4s0-eO-mzk" secondAttribute="top" id="gg2-IW-9lS"/>
+                                                <constraint firstAttribute="trailing" secondItem="Hae-Mr-aQV" secondAttribute="trailing" id="yMJ-Ay-p16"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="loadingIndicator" destination="UX4-ct-2yM" id="V9e-KL-JXT"/>
+                                            <outlet property="loadingView" destination="2Kv-CF-4wT" id="3tO-9O-tGM"/>
+                                            <outlet property="vehiclePlateView" destination="Hae-Mr-aQV" id="vRq-um-4x0"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QX2-Jh-6DW">
+                                <rect key="frame" x="103.5" y="349.5" width="207" height="207"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ocp-SR-9ji">
+                                        <rect key="frame" x="85" y="85" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detecting Vehicles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPL-1g-DpH">
+                                        <rect key="frame" x="29" y="145" width="149.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="LPL-1g-DpH" firstAttribute="centerX" secondItem="QX2-Jh-6DW" secondAttribute="centerX" id="8tM-ys-vAy"/>
+                                    <constraint firstAttribute="width" secondItem="QX2-Jh-6DW" secondAttribute="height" multiplier="1:1" id="C3g-8l-0mJ"/>
+                                    <constraint firstItem="LPL-1g-DpH" firstAttribute="centerY" secondItem="QX2-Jh-6DW" secondAttribute="centerY" multiplier="1.5" id="KW0-sX-kXn"/>
+                                    <constraint firstItem="Ocp-SR-9ji" firstAttribute="centerX" secondItem="QX2-Jh-6DW" secondAttribute="centerX" id="LLm-Mk-buk"/>
+                                    <constraint firstItem="Ocp-SR-9ji" firstAttribute="centerY" secondItem="QX2-Jh-6DW" secondAttribute="centerY" id="cQo-oz-DJW"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="YsL-f3-ou4" firstAttribute="centerX" secondItem="wFs-M8-hE5" secondAttribute="centerX" id="60v-bk-5EW"/>
+                            <constraint firstItem="QX2-Jh-6DW" firstAttribute="width" secondItem="cjo-fk-WpR" secondAttribute="width" multiplier="0.5" id="JYF-gS-xOu"/>
+                            <constraint firstItem="QX2-Jh-6DW" firstAttribute="centerY" secondItem="wFs-M8-hE5" secondAttribute="centerY" id="KEA-8J-2zk"/>
+                            <constraint firstItem="YsL-f3-ou4" firstAttribute="top" secondItem="8Ac-YX-tWC" secondAttribute="bottom" constant="8" id="Oac-mc-Kb6"/>
+                            <constraint firstItem="wFs-M8-hE5" firstAttribute="bottom" secondItem="YsL-f3-ou4" secondAttribute="bottom" constant="25" id="Rah-hg-xzf"/>
+                            <constraint firstItem="8Ac-YX-tWC" firstAttribute="leading" secondItem="wFs-M8-hE5" secondAttribute="leading" constant="20" id="UcI-ON-b1h"/>
+                            <constraint firstItem="QX2-Jh-6DW" firstAttribute="centerX" secondItem="wFs-M8-hE5" secondAttribute="centerX" id="ev8-EN-Mpy"/>
+                            <constraint firstItem="8Ac-YX-tWC" firstAttribute="top" secondItem="wFs-M8-hE5" secondAttribute="top" id="uio-Qh-P5t"/>
+                            <constraint firstItem="wFs-M8-hE5" firstAttribute="trailing" secondItem="8Ac-YX-tWC" secondAttribute="trailing" constant="20" id="vdv-hK-jIv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wFs-M8-hE5"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="8Ac-YX-tWC" id="vDz-Um-ehC"/>
+                        <outlet property="loadingIndicator" destination="Ocp-SR-9ji" id="dYf-ra-11G"/>
+                        <outlet property="loadingView" destination="QX2-Jh-6DW" id="xFl-Yu-PDA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Afx-S5-2qf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1092.753623188406" y="128.57142857142856"/>
+        </scene>
+    </scenes>
+</document>

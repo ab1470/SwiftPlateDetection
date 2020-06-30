@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftClipper",
+        "repositoryURL": "git@github.com:lhuanyu/SwiftClipper.git",
+        "state": {
+          "branch": "master",
+          "revision": "15c41b508844aebd401e312f4e0ae228fac05cdf",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
